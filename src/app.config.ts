@@ -1,28 +1,38 @@
-/*
- * @Author: your name
- * @Date: 2020-12-29 13:58:20
- * @LastEditTime: 2020-12-29 14:53:05
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \myApp\src\app.config.ts
- */
 export default {
   pages: [
     'pages/index/index',
-    'pages/home/index'
+    'pages/calendar/index',
+    'pages/clockin/index',
+    'pages/my/index'
   ],
   tabBar: {
-    "selectedColor": "#4B73EB",
-    "backgroundColor": "#FFF",
-    "borderStyle": "black",
+    // "selectedColor": "#4B73EB",
+    // "backgroundColor": "#FFF",
+    // "borderStyle": "black",
     "list": [
         {
+          "iconPath": "assets/images/checkmark.png",
+          "selectedIconPath": "assets/images/checkmark.png",
           "pagePath": "pages/index/index",
-          "text": "首页"
+          "text": "待办"
         },
         {
-          "pagePath": "pages/home/index",
-          "text": "个人"
+          "iconPath": "assets/images/check.png",
+          "selectedIconPath": "assets/images/check.png",
+          "pagePath": "pages/calendar/index",
+          "text": "日历"
+        },
+        {
+          "iconPath": "assets/images/checkmark.png",
+          "selectedIconPath": "assets/images/checkmark.png",
+          "pagePath": "pages/clockin/index",
+          "text": "打卡"
+        },
+        {
+          "iconPath": "assets/images/cogwheel.png",
+          "selectedIconPath": "assets/images/cogwheel.png",
+          "pagePath": "pages/my/index",
+          "text": "设置"
         }
       ]
   },
