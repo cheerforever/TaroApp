@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-12-29 13:58:20
+ * @LastEditTime: 2020-12-30 11:55:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \TaroApp\src\app.config.ts
+ */
 export default {
   pages: [
     'pages/index/index',
@@ -23,8 +31,8 @@ export default {
           "text": "日历"
         },
         {
-          "iconPath": "assets/images/checkmark.png",
-          "selectedIconPath": "assets/images/checkmark.png",
+          "iconPath": "assets/images/edit.png",
+          "selectedIconPath": "assets/images/edit.png",
           "pagePath": "pages/clockin/index",
           "text": "打卡"
         },

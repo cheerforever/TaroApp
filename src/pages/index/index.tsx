@@ -1,24 +1,41 @@
 import React, { Component } from 'react'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Button } from '@tarojs/components'
+import { AtDrawer } from 'taro-ui'
 import './index.scss'
 
-export default class Index extends Component {
+export default class Index extends Component{
+constructor(props) {
+	super(props);
+	this.state = {show: false};
+	}
+  componentWillMount() {}
 
-  componentWillMount () { }
+  componentDidMount() {}
 
-  componentDidMount () { }
+  componentWillUnmount() {}
 
-  componentWillUnmount () { }
+  componentDidShow() {}
 
-  componentDidShow () { }
+  componentDidHide() {}
 
-  componentDidHide () { }
+  onClose = function () {};
+  onTap = function () {
+	this.setState({show: true});
+  };
 
-  render () {
+  render() {
     return (
       <View className='index'>
-        <Text>待办</Text>
+		<View className='header'>
+			<View className='draw-button' onClick={this.onTap.bind(this)}></View>
+		</View>
+        <AtDrawer
+          show={this.state.show}
+          mask
+          onClose={this.onClose.bind(this)}
+          items={["菜单1", "菜单2"]}
+        ></AtDrawer>
       </View>
-    )
+    );
   }
 }
