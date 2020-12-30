@@ -1,13 +1,33 @@
 .index{
     width: 100%;
     height: 100%;
-    padding: 0 20px;
+    /* 抽屉样式 */
+    .at-drawer__content{
+        width: 640px;
+    }
+    /* 展开抽屉后样式 */
+    .draw-show{
+        margin-left: 640px;
+        width: calc(100% + 640px);
+        transition: ease 0.5s;
+    }
     .header{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .draw-button{
+            position: absolute;
+            left: 20px;
             width: 40px;
             height: 40px;
             background-image: url(../../assets/images/menu-of-three-lines.png);
             background-size: cover;
+        }
+        .list-title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }

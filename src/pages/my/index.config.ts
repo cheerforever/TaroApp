@@ -7,5 +7,5 @@
  * @FilePath: \myApp\src\pages\my\index.config.ts
  */
 export default {
-    navigationBarTitleText: '设置'
+    navigationBarTitleText: ''
 }
