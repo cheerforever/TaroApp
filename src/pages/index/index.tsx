@@ -102,7 +102,7 @@ export default class Index extends Component {
 				<View className='normal'>
 					<View className='folder-line'></View>
 					<View className='check-box'></View>
-					<View>{item.value}</View>
+					<View className='task-name'>{item.value}</View>
 				</View>
 			</AtSwipeAction>
 		  ))}

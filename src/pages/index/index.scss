@@ -22,7 +22,7 @@
         align-items: center;
         .draw-button{
             position: absolute;
-            left: 56px;
+            left: 28px;
             width: 40px;
             height: 40px;
             @include opacity-8;
@@ -43,7 +43,7 @@
         margin: 20px 0;
         .input-group{
             position: relative;
-            width: 620px;
+            width: 680px;
             height: 64px;
             padding: 0 14px;
             background-color: #eef2eb;
@@ -88,15 +88,21 @@
             height: 64px;
             border-radius: 10px;
             .normal{
+                display: flex;
                 width: 100%;
                 height: 100%;
                 .folder-line{
-                    width: 5px;
+                    width: 10px;
                     height: 100%;
                 }
                 .check-box{
-                    width: 20px;
+                    width: 60px;
                     height: 100%;
+                }
+                .task-name{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
         }
