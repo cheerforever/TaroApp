@@ -1,15 +1,18 @@
+@mixin opacity-8 {
+    opacity: 0.8;
+}
 .index{
     width: 100%;
     height: 100%;
     /* 抽屉样式 */
     .at-drawer__content{
         width: 640px;
-    }
-    /* 展开抽屉后样式 */
-    .draw-show{
-        margin-left: 640px;
-        width: calc(100% + 640px);
-        transition: ease 0.5s;
+        height: 100%;
+        background-image: url(../../assets/images/drawer-bg.png);
+        background-size: cover;
+        .at-list{
+            opacity: 0.5;
+        }
     }
     .header{
         position: relative;
@@ -18,9 +21,10 @@
         align-items: center;
         .draw-button{
             position: absolute;
-            left: 20px;
+            left: 56px;
             width: 40px;
             height: 40px;
+            @include opacity-8;
             background-image: url(../../assets/images/menu-of-three-lines.png);
             background-size: cover;
         }
@@ -28,6 +32,52 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: 32px;
+        }
+    }
+    .task-group{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        margin: 20px 0;
+        .input-group{
+            position: relative;
+            width: 620px;
+            height: 64px;
+            padding: 0 14px;
+            background-color: #eef2eb;
+            border: 1px solid #eef2eb;
+            border-radius: 10px;
+            &:hover{
+                border: 1px solid #c1d3b4;
+            }
+            input {
+                width: 520px;
+                height: 100%;
+            }
+            .icon-group{
+                position: absolute;
+                top: 0;
+                right: 12px;
+                display: flex;
+                align-items: center;
+                height: 100%;
+                .icon{
+                    width: 32px;
+                    height: 32px;
+                    margin: 0 10px;
+                    @include opacity-8;
+                }
+                .calendar{
+                    background-image: url(../../assets/images/calendar.png);
+                    background-size: cover;
+                }
+                .send{
+                    background-image: url(../../assets/images/paper-plane.png);
+                    background-size: cover;
+                }
+            }
         }
     }
 }
