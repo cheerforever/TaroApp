@@ -9,10 +9,13 @@
 import { Component } from 'react'
 import 'taro-ui/dist/style/index.scss'
 import './app.scss'
+import * as main from './main';
 
 class App extends Component {
 
-  componentDidMount () {}
+  componentDidMount () {
+    main.init();
+  }
 
   componentDidShow () {}
 

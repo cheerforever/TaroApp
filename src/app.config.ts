@@ -8,6 +8,7 @@
  */
 export default {
   pages: [
+    'pages/login/index',
     'pages/index/index',
     'pages/calendar/index',
     'pages/clockin/index',
@@ -19,25 +20,25 @@ export default {
     // "borderStyle": "black",
     "list": [
         {
-          "iconPath": "assets/images/checkmark.png",
+          "iconPath": "assets/images/checkmark-1.png",
           "selectedIconPath": "assets/images/checkmark.png",
           "pagePath": "pages/index/index",
           "text": "待办"
         },
         {
-          "iconPath": "assets/images/check.png",
+          "iconPath": "assets/images/check-1.png",
           "selectedIconPath": "assets/images/check.png",
           "pagePath": "pages/calendar/index",
           "text": "日历"
         },
         {
-          "iconPath": "assets/images/edit.png",
+          "iconPath": "assets/images/edit-1.png",
           "selectedIconPath": "assets/images/edit.png",
           "pagePath": "pages/clockin/index",
           "text": "打卡"
         },
         {
-          "iconPath": "assets/images/cogwheel.png",
+          "iconPath": "assets/images/cogwheel-1.png",
           "selectedIconPath": "assets/images/cogwheel.png",
           "pagePath": "pages/my/index",
           "text": "设置"
