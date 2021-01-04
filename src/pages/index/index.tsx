@@ -3,10 +3,11 @@ import { View, Text, Input, Checkbox, CheckboxGroup, Image } from "@tarojs/compo
 import { AtDrawer, AtSwipeAction, AtFloatLayout } from "taro-ui";
 // import Taro from "@tarojs/taro";
 import * as api from '../../service/api';
+import Empty from './empty';
 
 import "./index.scss";
 
-export default class Index extends Component {
+export default class Index extends Component {  
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +17,7 @@ export default class Index extends Component {
       inputLayoutShow: false,
       inputIconShow: false,
       // 清单标题名称
-      listTitle: "📪收集箱",
+      listTitle: "收集箱",
       // 当前任务内容
       taskInfo: "",
       // 新增任务内容数组
@@ -26,7 +27,9 @@ export default class Index extends Component {
       // 已完成展开栏是否收起
       doneTaskSwiperPickUp: false,
       // 用户信息
-      userinfo: {}
+      userinfo: {},
+      // 今天日期
+      today: 4
     };
   }
 
@@ -117,12 +120,27 @@ export default class Index extends Component {
     // console.log('doneTaskDataArr', JSON.stringify(this.state.doneTaskDataArr))
   }
 
-  handleTaskDateClick = function (obj, item) {
-      console.log('obj', JSON.stringify(obj, item))
+  handleTaskDateClick = function (obj) {
+    debugger
+    let {id} = obj;
+    let taskDataArr = [...this.state.taskDataArr];
+    taskDataArr.map((item, index) => {
+      if(item.id === id){
+        taskDataArr.splice(index, 1);
+      }
+    })
+    this.setState({taskDataArr});
   }
 
   handleDoneTaskDateClick = function (obj) {
-      console.log('obj', JSON.stringify(obj))
+    // const {id} = obj;
+    // let doneTaskDataArr = [...this.state.doneTaskDataArr];
+    // doneTaskDataArr.map((item, index) => {
+    //   if(item.id === id){
+    //     doneTaskDataArr.splice(index, 1);
+    //   }
+    // })
+    // this.setState({doneTaskDataArr});
   }
 
   onDoneCheckChanged = function (obj) {
@@ -143,10 +161,17 @@ export default class Index extends Component {
     this.setState({doneTaskSwiperPickUp: !this.state.doneTaskSwiperPickUp});
   }
 
+  addListHandle = function (){
+
+  }
+
   render(this) {
     return (
       <View className='index'>
-        <View className='header'>
+        <Empty show={this.state.taskDataArr.length > 0 ? false :
+      this.state.doneTaskDataArr.length > 0 ? false : true}></Empty>
+        <View className={this.state.taskDataArr.length > 0 ? 'header' :
+      this.state.doneTaskDataArr.length > 0 ? 'header' : 'header hide'}>
           <View className='draw-button' onClick={this.onTap.bind(this)}></View>
           <View className='list-title'>
             <Text>{this.state.listTitle}</Text>
@@ -175,18 +200,18 @@ export default class Index extends Component {
           {this.state.taskDataArr.map((item, index) => (
             <AtSwipeAction
               key={index}
-              onClick={this.handleTaskDateClick(item)}
+              onClick={this.handleTaskDateClick}
               options={[
                 {
                   text: "删除",
                   style: {
-                    backgroundColor: "#FF4949",
-                  },
+                    backgroundColor: "#EC6D72",
+                  }
                 },
               ]}
             >
               <View className='normal'>
-                <View className='folder-line'></View>
+                <View className='folder-line' style='background-color: #C8F2E8;'></View>
                 <View className='check-box'>
                   <CheckboxGroup onChange={this.onChanged.bind(this, item)}>
                     <Checkbox value={item.id} color='#B0B0B0'></Checkbox>
@@ -217,13 +242,13 @@ export default class Index extends Component {
                 {
                   text: "删除",
                   style: {
-                    backgroundColor: "#FF4949",
+                    backgroundColor: "#EC6D72",
                   },
                 },
               ]}
             >
               <View className='normal'>
-                <View className='folder-line'></View>
+                <View className='folder-line' style='background-color: #C8F2E8;'></View>
                 <View className='check-box'>
                   <CheckboxGroup onChange={this.onDoneCheckChanged.bind(this, item)}>
                     <Checkbox value={item.id} color='#B0B0B0' checked></Checkbox>
@@ -243,6 +268,15 @@ export default class Index extends Component {
             <View className='user-info'>
               <Image className='acatar' src={this.state.userinfo.avatarUrl}></Image>
               <View className='name'>{this.state.userinfo.nickName}</View>
+            </View>
+            <View className='today add-list-title'>
+              <View className='add-list-icon'></View>
+              <View className='today-date'>{this.state.today}</View>
+              <View className='add-list-text'>今天</View>
+            </View>
+            <View className='add-list-title' onClick={this.addListHandle.bind(this)}>
+              <View className='add-list-icon'></View>
+              <View className='add-list-text'>添加清单</View>
             </View>
           </View>
         </AtDrawer>

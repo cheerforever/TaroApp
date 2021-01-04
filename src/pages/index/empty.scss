@@ -1,0 +1,21 @@
+.empty{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 240px 0;   
+    .empty-icon{
+        width: 218px;
+        height: 218px;
+        background-image: url(../../assets/images/document.png);
+        background-size: cover;
+    }
+    .empty-title{
+        font-size: 36px;
+    }
+    .empty-title-small{
+        color: #818181;
+        font-size: 24px;
+    }
+}

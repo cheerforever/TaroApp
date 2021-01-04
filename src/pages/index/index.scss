@@ -1,4 +1,4 @@
-$dark-green: #507C1D;
+$dark-green: #13332E;
 $text-color: #1E1E1E;
 .index{
     width: 100%;
@@ -15,17 +15,21 @@ $text-color: #1E1E1E;
     .at-drawer__content{
         width: 640px;
         height: 100%;
-        background-image: url(../../assets/images/drawer-bg.png);
-        background-size: cover;
+        background-color: #C8F2E8;
+        // background-image: url(../../assets/images/drawer-bg.png);
+        // background-size: cover;
         .draw-container{
             width: 100%;
-            height: 100%;
+            // height: 100%;
             .user-info{
                 display: flex;
                 align-items: center;
-                width: 100%;
-                height: 100px;
-                padding: 24px;
+                width: 270px;
+                height: 40px;
+                padding: 24rpx;
+                margin: 10px 10px;
+                background-color: #fff;
+                border-radius: 20px;
                 .acatar{
                     width: 60px;
                     height: 60px;
@@ -36,6 +40,34 @@ $text-color: #1E1E1E;
                     font-size: 24px;
                     font-weight: 800;
                     color: $dark-green;
+                }
+            }
+            .add-list-title{
+                position: relative;
+                display: flex;
+                align-items: center;
+                margin: 10px;
+                color: #1C4439;
+                &.today{
+                    .add-list-icon{
+                        background-image: url(../../assets/images/calendar.png);
+                    }
+                    .today-date{
+                        position: absolute;
+                        font-size: 16px;
+                        top: 11px;
+                        left: 7px;
+                    }
+                }
+                .add-list-icon{
+                    width: 40px;
+                    height: 40px;
+                    background-image: url(../../assets/images/plus.png);
+                    background-size: cover;
+                }
+                .add-list-text{
+                    margin-left: 10px;
+                    font-size: 36px;
                 }
             }
         }
@@ -50,7 +82,6 @@ $text-color: #1E1E1E;
             left: 28px;
             width: 40px;
             height: 40px;
-            opacity: 0.5;
             background-image: url(../../assets/images/menu-of-three-lines.png);
             background-size: cover;
         }
@@ -84,11 +115,11 @@ $text-color: #1E1E1E;
             width: 680px;
             height: 64px;
             padding: 0 14px;
-            background-color: #eef2eb;
-            border: 1px solid #eef2eb;
+            background-color: #CEE5DE;
+            border: 1px solid #CEE5DE;
             border-radius: 10px;
             &:hover{
-                border: 1px solid #c1d3b4;
+                border: 1px solid #9CBCB3;
             }
             input {
                 width: 100%;
@@ -126,7 +157,7 @@ $text-color: #1E1E1E;
             height: 40px;
             padding: 0 24px;
             font-size: 20px;
-            background-color: #EAF4E3;
+            background-color: #BBE8DD;
             .swiper-count{
                 position: absolute;
                 right: 60px;
@@ -154,7 +185,6 @@ $text-color: #1E1E1E;
         .at-swipe-action__content{
             width: 100%;
             height: 72px;
-            border-radius: 10px;
             .normal{
                 display: flex;
                 width: 100%;
