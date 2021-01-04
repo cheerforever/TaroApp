@@ -69,10 +69,8 @@ $text-color: #1E1E1E;
         justify-content: center;
         width: 100px;
         height: 100px;
-        font-size: 60px;
-        background-color: $dark-green;
-        color: #ffffff;
-        border-radius: 50%;
+        background-image: url('../../assets/images/plus.png');
+        background-size: cover;
         &:active{
             transform: translate(2px, 2px);
         }

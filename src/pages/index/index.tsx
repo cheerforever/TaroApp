@@ -81,12 +81,16 @@ export default class Index extends Component {
 
   onSend = function (obj) {
     console.log("onSend", obj, this.state.taskInfo);
-    this.state.taskDataArr.unshift({
-      value: this.state.taskInfo, 
-      id: Math.random().toString(36).slice(-8),
-      checked: false
-    });
-    this.setState({ taskInfo: "" });
+    if(this.state.taskInfo !== ''){
+        this.state.taskDataArr.unshift({
+          value: this.state.taskInfo, 
+          id: Math.random().toString(36).slice(-8),
+          checked: false
+        });
+        this.setState({ taskInfo: "" });
+    } else {
+        // wx.showToast()
+    }
   };
 
   onTapShowInput = function () {
@@ -111,6 +115,14 @@ export default class Index extends Component {
     this.setState({doneTaskDataArr});
     // console.log('taskDataArr', JSON.stringify(this.state.taskDataArr))
     // console.log('doneTaskDataArr', JSON.stringify(this.state.doneTaskDataArr))
+  }
+
+  handleTaskDateClick = function (obj, item) {
+      console.log('obj', JSON.stringify(obj, item))
+  }
+
+  handleDoneTaskDateClick = function (obj) {
+      console.log('obj', JSON.stringify(obj))
   }
 
   onDoneCheckChanged = function (obj) {
@@ -140,7 +152,7 @@ export default class Index extends Component {
             <Text>{this.state.listTitle}</Text>
           </View>
         </View>
-        <View className='add-task-btn' onClick={this.onTapShowInput.bind(this)}>+</View>
+        <View className='add-task-btn' onClick={this.onTapShowInput.bind(this)}></View>
         <AtFloatLayout isOpened={this.state.inputLayoutShow} onClose={this.handleClose.bind(this)}>
           <View className='input-group'>
             <Input
@@ -163,15 +175,10 @@ export default class Index extends Component {
           {this.state.taskDataArr.map((item, index) => (
             <AtSwipeAction
               key={index}
+              onClick={this.handleTaskDateClick(item)}
               options={[
                 {
-                  text: "取消",
-                  style: {
-                    backgroundColor: "#6190E8",
-                  },
-                },
-                {
-                  text: "确认",
+                  text: "删除",
                   style: {
                     backgroundColor: "#FF4949",
                   },
@@ -203,17 +210,12 @@ export default class Index extends Component {
               </View>
           </View>
           {this.state.doneTaskDataArr.map((item, index) => (
-            <AtSwipeAction
+            <AtSwipeAction 
               key={index}
+              onClick={this.handleDoneTaskDateClick(item)}
               options={[
                 {
-                  text: "取消",
-                  style: {
-                    backgroundColor: "#6190E8",
-                  },
-                },
-                {
-                  text: "确认",
+                  text: "删除",
                   style: {
                     backgroundColor: "#FF4949",
                   },
